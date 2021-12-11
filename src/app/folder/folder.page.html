@@ -3,19 +3,45 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>News Feed</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <ion-title size="large">News Feed</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- <div id="container">
+  </div> -->
+
+  <div class="container">
+    <hr class="my-4">
+    <ion-row>
+    <div style="width: 50px; height: 30px; ">
+      <img class="img-responsive img-fluid" style="border-radius: 50%; width: 40px; height: 30px;" src="../assets/leisure.jpg">
+    </div>
+    <!-- <h4>Name</h4> -->
+    <ion-col>
+    <p>Some textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome textSome text</p>
+    </ion-col>
+  </ion-row>
+    <div class="buttons">
+        <div class="comment">
+            <span class="far fa-comment"></span>
+          </div>
+        <div class="retweet">
+            <span class="fas fa-retweet"></span>
+          </div>
+        <div class="heart">
+            <span class="far fa-heart"></span>
+            </div>
+        <div class="share">
+            <span class="fas fa-share-alt"></span>
+            </div>
+     </div>
+    <hr class="my-4">
+</div>
 </ion-content>

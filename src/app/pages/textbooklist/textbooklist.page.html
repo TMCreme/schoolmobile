@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="#" (click)=goBack()></ion-back-button>
+      <!-- <ion-menu-button></ion-menu-button> -->
+    </ion-buttons>
+    <ion-title>Text Books</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" no-padding>   
+   <div *ngIf="textbookdata; else content">
+      <ion-item id="catcontainer"  *ngFor="let item of textbookdata">
+        <ion-grid  item-content>
+            <a routerLink="">
+          <ion-row>
+            <ion-col>
+          <span>{{item.name}}</span><br>
+          </ion-col>
+ 
+        </ion-row>
+      </a>
+     
+        </ion-grid>
+      </ion-item>
+      </div>
+      <ng-template #content>
+        <h1>{{textbookerr}}</h1>
+      </ng-template>
+      </div>
+
+</ion-content>
