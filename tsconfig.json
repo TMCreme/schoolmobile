@@ -3,6 +3,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "tslib" : ["./node_modules/tslib/tslib.d.ts"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -13,9 +16,7 @@
     "target": "es2015",
     "module": "es2020",
     "lib": ["es2018", "dom"],
-    // "paths": {
-    //   "tslib" : ["./node_modules/tslib/tslib.d.ts"]
-    // } 
+    
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

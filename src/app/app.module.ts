@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { CacheService, CacheModule } from 'ionic-cache';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { File } from '@awesome-cordova-plugins/file/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -18,6 +20,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
         IonicStorageModule.forRoot()],
     providers: [
         CacheService,
+        HTTP,
+        File,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]
