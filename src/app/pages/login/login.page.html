@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Fiala</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
+    <!-- <img style="margin: 10px 10px 20px 25%;" src="../assets/loginicon4.png"> -->
+  <form class="logpage" [formGroup]="loginform" role="form" (ngSubmit)="LoginUser()" >
+    <ion-item class="loguser">
+      <ion-icon name="person"></ion-icon><ion-input id="login-username" name='username' formControlName="username" type="text"  placeholder="Username"></ion-input>
+    </ion-item>
+
+      <ion-item>
+             <ion-icon name="lock-closed"></ion-icon>
+             <ion-input id="login-password" formControlName="password" type="password" name="password" class="form-control" placeholder="Password"></ion-input><ion-icon name="eye-off"></ion-icon>
+          <!-- </ion-row> -->
+        <!-- </ion-grid> -->
+    </ion-item>
+
+    <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.password">
+          <div class="error-messages" *ngIf="loginform.get('password').hasError(error.type) && (loginform.get('password').dirty || loginform.get('password').touched)">
+            {{error.message}}
+          </div>
+        </ng-container>
+      </div>
+    <ion-button id="loginbutton" (click)=LoginUser() [disabled]="!loginform.valid" shape="round" size="default" expand="block">Login</ion-button>
+    <!-- <div class="form-group">
+      <div class="col-md-12 control">
+        <div style="border-top: 5px solid rgb(255, 255, 255); padding-left: 10px; padding-top:15px; font-size:85%" >
+            Forgot Password?
+        <a routerLink="/">
+            Reset here
+        </a>
+        </div>
+    </div>
+    
+    </div> -->
+  </form>
+  </div>
+
+</ion-content>

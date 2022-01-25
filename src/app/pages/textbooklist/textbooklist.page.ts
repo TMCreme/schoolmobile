@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 // import { JwtHelperService } from '@auth0/angular-jwt';
 import { Location } from '@angular/common';
 import { CacheService } from 'ionic-cache';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-textbooklist',
@@ -22,7 +23,7 @@ export class TextbooklistPage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.plt.backButton.subscribe(() => this.onBack());
+    this.plt.backButton.subscribe(() => this.goBack());
     this.ListTextBook();
   }
 
@@ -42,12 +43,17 @@ export class TextbooklistPage implements OnInit {
       
     }, (err) => {
       loading.dismiss();
+      // for (let e in err){
+      //   alert(e)
+      // }
+      alert(err.name)
       console.log(err);
-      this.textbookerr = err;
+      this.textbookerr = err.statusText;
+      this.cacheService.removeItem("textbooklist");
     })
   }
 
-  async onBack() {
+  async goBack() {
     const openMenu = await this.menuCtrl.getOpen();
   if (openMenu) {
     await openMenu.close();

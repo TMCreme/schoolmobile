@@ -11,7 +11,7 @@ import { BaseService } from './base.service';
 })
 export class TextbookService {
 
-  listurl = "http://127.0.0.1:8030/home/api-textbook/"
+  listurl = "http://192.168.8.172:8030/home/api-textbook/";
 
   constructor(private http: HttpClient) { }
   getTextBookList(): Observable<any>{

@@ -26,3 +26,69 @@ ion-menu-button {
 #container a {
   text-decoration: none;
 }
+
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  // top: 5%;
+  // transform: translateY(-20%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-item-divider {
+  margin-top: 10px;
+}
+
+
+div #like-icon:after {
+  content: '';
+  display:block;
+  clear: both;
+}
+
+
+.buttons{
+  display: flex;
+   justify-content: space-between;
+}
+.value{
+   padding-left: 10px;
+}
+.comment :hover{
+   cursor: pointer;
+   color: rgb(61, 113, 143);
+}
+.retweet :hover{
+   cursor: pointer;
+   color: rgb(41, 134, 41);
+}
+.heart :hover{
+   cursor: pointer;
+   color:rgb(160, 23, 48);
+}
+.share :hover{
+   cursor: pointer;
+color: rgb(41, 134, 41);;
+}
+
