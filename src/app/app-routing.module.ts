@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'createuser',
     loadChildren: () => import('./pages/createuser/createuser.module').then( m => m.CreateuserPageModule)
+  },
+  {
+    path: 'changepassword',
+    loadChildren: () => import('./pages/changepassword/changepassword.module').then( m => m.ChangepasswordPageModule)
+  },
+  {
+    path: 'userassociation',
+    loadChildren: () => import('./pages/userassociation/userassociation.module').then( m => m.UserassociationPageModule)
   }
 ];
 

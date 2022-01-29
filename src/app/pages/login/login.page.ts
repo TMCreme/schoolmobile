@@ -9,6 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoadingController } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
 import { CacheService } from 'ionic-cache';
+import { NavController } from '@ionic/angular';
+import { MenuService } from 'src/app/services/menu.service';
 
 
 @Component({
@@ -38,7 +40,8 @@ export class LoginPage implements OnInit {
   constructor(private loadingController: LoadingController,
     private base: BaseService, public cacheService: CacheService,
     private cookieService: CookieService, private router: Router,
-    public formBuilder: FormBuilder, ) { 
+    public formBuilder: FormBuilder, private appcomponent: AppComponent,
+    private navCtrl: NavController, private menu: MenuService) { 
       this.loginform = this.formBuilder.group({
         username: new FormControl('', Validators.compose([
           Validators.required,
@@ -80,12 +83,20 @@ export class LoginPage implements OnInit {
       if (data.status=='success') {
         this.cookieService.set('token', data['token']);
         this.cookieService.set('organization', data["organization"])
+        this.cookieService.set('usergroup', data["group"])
         this.loginform.reset();
-        this.router.navigate(["directory"])
+        this.appcomponent.appPages = this.menu.dynamicMenu()
+        this.router.navigate(["/directory"])
         loading.dismiss();
 
+      }else if(data.status=="Inactive"){
+       
+        console.log(data.data.message)
+        this.loginform.reset();
+        this.router.navigate(["changepassword"])
+        loading.dismiss();
       }else {
-        console.log(data.error);
+        console.log("Logging Error" + data.error);
         this.cacheService.removeItem("userauthdata");
         loading.dismiss();
         alert("Login Error:  " + data.error)

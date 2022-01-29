@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { MenuService } from './services/menu.service';
+
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  // if ()
-  public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Directories', url: '/directory', icon: 'paper-plane' },
-    { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Logout', url: '/logout', icon: 'log-out' },
-    { title: 'Add User', url: '/createuser', icon: 'person-add' },
-  ];
+  appPages;
+  // public appPages = 
   public labels = ['Version 1'];
-  constructor() {}
-
+  constructor(public cookieService: CookieService, public menu: MenuService) {}
   
+  ngOnInit() {
+    this.appPages = this.menu.dynamicMenu()
+    // console.log(this.menu.dynamicMenu())
+  }
 }

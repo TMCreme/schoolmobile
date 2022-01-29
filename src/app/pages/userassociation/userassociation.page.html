@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
+    <!-- <img style="margin: 10px 10px 20px 35%;" src="../assets/loginicon3.png"> -->
+    <form [formGroup]="userTypeForm" role="form" (ngSubmit)="onSubmit()" #LoginForm="ngForm" *ngIf="userTypeForm != undefined">
+      
+      <ion-list *ngFor="let data of formData">
+        <ion-select [compareWith]="compareWith" multiple="false" formControlName="dynamicval">
+          <ion-select-option *ngFor="let lev of data.options" [value]="lev">{{lev}}</ion-select-option>
+        </ion-select>
+    
+    </ion-list>
+
+      <ion-button id="loginbutton" (click)=onSubmit()  shape="round" size="default"  expand="block">Submit</ion-button>
+    
+    </form>
+    
+  </div>
+
+</ion-content>
