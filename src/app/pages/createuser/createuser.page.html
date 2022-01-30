@@ -15,7 +15,7 @@
   </ion-header>
   <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
     <img style="margin: 10px 10px 20px 35%;" src="../assets/loginicon3.png">
-    <form [formGroup]="registerForm" role="form" (ngSubmit)="RegisterUser()" #LoginForm="ngForm">
+    <form [formGroup]="registerForm" role="form" (ngSubmit)="registration()" #LoginForm="ngForm">
       
       <ion-item>
         <ion-input id="register-username" name='username' formControlName="username" type="text" class="form-control" placeholder="Username"></ion-input>

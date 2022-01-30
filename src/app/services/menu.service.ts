@@ -6,16 +6,23 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MenuService {
   public appPages = [
+    { title: 'Admin', url: '/adminportal', icon: 'paper-plane' },
     { title: 'Directories', url: '/directory', icon: 'paper-plane' },
     { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Logout', url: '/logout', icon: 'log-out' },
     { title: 'Add User', url: '/createuser', icon: 'person-add' },
+    { title: 'Logout', url: '/logout', icon: 'log-out' },
   ];
   public studentPages = [
     { title: 'Directories', url: '/directory', icon: 'paper-plane' },
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ]
   public parentPages = [
+    { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
+    { title: 'Logout', url: '/logout', icon: 'log-out' },
+  ]
+  public teacherPages = [
+    { title: 'Teacher', url: '/teacherportal', icon: 'paper-plane' },
+    { title: 'Directories', url: '/directory', icon: 'paper-plane' },
     { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ]
@@ -26,7 +33,11 @@ export class MenuService {
     console.log(userRole)
     if (userRole=="Student"){
       return this.studentPages
-    } else {
+    } else if (userRole=="Teacher"){
+      return this.teacherPages
+    }else if (userRole=="ParentOrGuardian"){
+      return this.parentPages
+    }else if (userRole=="SchoolAdmin"){
       return this.appPages
     }
   }

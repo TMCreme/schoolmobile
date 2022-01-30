@@ -84,9 +84,17 @@ export class LoginPage implements OnInit {
         this.cookieService.set('token', data['token']);
         this.cookieService.set('organization', data["organization"])
         this.cookieService.set('usergroup', data["group"])
+        this.cookieService.set("loggedinuser", this.loginform.value.username)
         this.loginform.reset();
         this.appcomponent.appPages = this.menu.dynamicMenu()
-        this.router.navigate(["/directory"])
+        if (data["group"] == "SchoolAdmin") {
+          this.router.navigate(["adminportal"])
+        }else if (data["group"] == "Teacher"){
+          this.router.navigate(["teacherportal"])
+        }else {
+          this.router.navigate(["/directory"])
+        }
+        
         loading.dismiss();
 
       }else if(data.status=="Inactive"){

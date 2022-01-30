@@ -22,7 +22,7 @@ export class LogoutPage implements OnInit {
         this.cookieService.delete("usergroup");
         this.cookieService.delete("organization");
         this.cache.removeItem("userauthdata")
-        this.router.navigate(["/login"])
+        this.router.navigate(["login"])
       }else{
         console.log(data);
         alert("Logout Error   "+ data.error)

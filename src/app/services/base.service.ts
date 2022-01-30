@@ -15,7 +15,7 @@ export class BaseService {
     'Content-type': 'application/json',
   })
   userprofile: any;
-  base_url = "http://127.0.0.1:8030";
+  base_url = "http://46.51.157.194:8192";
 
   constructor( private http: HttpClient, private cookieService: CookieService) { }
 

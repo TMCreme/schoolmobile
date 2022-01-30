@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button defaultHref="#" ></ion-back-button>
+    </ion-buttons>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" >
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>Username</div>
+        </ion-col>
+        <ion-col size-md="8">
+          <div>Role</div>
+        </ion-col>
+        <ion-col class="my-right-column">
+          <div></div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let user of retrievedUsers; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
+        <!-- <ion-item> -->
+        <ion-col>
+          <div>{{user.username}}</div>
+        </ion-col>
+        <ion-col size-md="3">
+          <div>{{user.group}}</div>
+        </ion-col>
+        <ion-col class="my-right-column">
+          <ion-buttons >
+            <ion-button (click)="presentActionSheet(user.username)">
+              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+            </ion-buttons>
+        </ion-col>
+      <!-- </ion-item> -->
+      </ion-row>
+    
+    </ion-grid>
+
+  </div>
+
+  
+
+</ion-content>

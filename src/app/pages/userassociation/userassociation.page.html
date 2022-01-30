@@ -18,7 +18,7 @@
     <form [formGroup]="userTypeForm" role="form" (ngSubmit)="onSubmit()" #LoginForm="ngForm" *ngIf="userTypeForm != undefined">
       
       <ion-list *ngFor="let data of formData">
-        <ion-select [compareWith]="compareWith" multiple="false" formControlName="dynamicval">
+        <ion-select  multiple="false" formControlName="dynamicval">
           <ion-select-option *ngFor="let lev of data.options" [value]="lev">{{lev}}</ion-select-option>
         </ion-select>
     

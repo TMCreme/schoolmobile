@@ -46,6 +46,18 @@ const routes: Routes = [
   {
     path: 'userassociation',
     loadChildren: () => import('./pages/userassociation/userassociation.module').then( m => m.UserassociationPageModule)
+  },
+  {
+    path: 'adminportal',
+    loadChildren: () => import('./pages/adminportal/adminportal.module').then( m => m.AdminportalPageModule)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'teacherportal',
+    loadChildren: () => import('./pages/teacherportal/teacherportal.module').then( m => m.TeacherportalPageModule)
   }
 ];
 
