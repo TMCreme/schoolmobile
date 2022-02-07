@@ -58,6 +58,18 @@ const routes: Routes = [
   {
     path: 'teacherportal',
     loadChildren: () => import('./pages/teacherportal/teacherportal.module').then( m => m.TeacherportalPageModule)
+  },
+  {
+    path: 'parentportal',
+    loadChildren: () => import('./pages/parentportal/parentportal.module').then( m => m.ParentportalPageModule)
+  },
+  {
+    path: 'ptaschedule',
+    loadChildren: () => import('./pages/ptaschedule/ptaschedule.module').then( m => m.PtaschedulePageModule)
+  },
+  {
+    path: 'addevent',
+    loadChildren: () => import('./pages/addevent/addevent.module').then( m => m.AddeventPageModule)
   }
 ];
 

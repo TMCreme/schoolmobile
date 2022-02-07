@@ -16,6 +16,7 @@ export class BaseService {
   })
   userprofile: any;
   base_url = "http://46.51.157.194:8192";
+  // public base_url = "http://127.0.0.1:8030";
 
   constructor( private http: HttpClient, private cookieService: CookieService) { }
 

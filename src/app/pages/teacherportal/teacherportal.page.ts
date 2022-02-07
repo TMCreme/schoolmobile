@@ -32,9 +32,9 @@ export class TeacherportalPage implements OnInit {
     this.teachserService.subjectList(), "adminviewuserlist", 5)
     response.subscribe(data => {
       
-      this.retrivedsubjects = data.data
-      console.log(this.retrivedsubjects)
-      loading.dismiss()
+      this.retrivedsubjects = data.data;
+      console.log(this.retrivedsubjects);
+      loading.dismiss();
     })
   }
 
@@ -46,8 +46,17 @@ export class TeacherportalPage implements OnInit {
         text: 'Edit Subject',
         icon: 'create',
         handler: () => {
+          // This button will call a reset password API. but I want to do it without the token in django's builtin auth
           console.log('Edit subject for ', subject);
-          this.router.navigate(["changepassword"]);
+          // this.router.navigate([""]);
+        }
+      }, {
+        text: 'View Student List',
+        icon: 'eye',
+        handler: () => {
+          // Under student list, we will have to add remarks from teachers. 
+          console.log('Edit subject for ', subject);
+          // this.router.navigate([""]);
         }
       }, {
         text: 'Delete',
@@ -67,7 +76,7 @@ export class TeacherportalPage implements OnInit {
     await actionSheet.present();
 
     const { role, data } = await actionSheet.onDidDismiss();
-    console.log('onDidDismiss resolved with role and data', subject);
+    console.log('onDidDismiss resolved with role and data', subject, level);
 
   }
 

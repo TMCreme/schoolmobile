@@ -63,6 +63,11 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
+    var usertoken = this.cookieService.get("token");
+    if (usertoken){
+      console.log(usertoken);
+      this.router.navigate(["adminportal"])
+    }
   }
 
   async LoginUser() {
@@ -91,6 +96,8 @@ export class LoginPage implements OnInit {
           this.router.navigate(["adminportal"])
         }else if (data["group"] == "Teacher"){
           this.router.navigate(["teacherportal"])
+        } else if (data["group"] == "ParentOrGuardian"){
+          this.router.navigate(["parentportal"])
         }else {
           this.router.navigate(["/directory"])
         }

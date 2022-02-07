@@ -8,7 +8,7 @@ export class MenuService {
   public appPages = [
     { title: 'Admin', url: '/adminportal', icon: 'paper-plane' },
     { title: 'Directories', url: '/directory', icon: 'paper-plane' },
-    { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
+    { title: 'Management Bay', url: '/ptaschedule', icon: 'heart' },
     { title: 'Add User', url: '/createuser', icon: 'person-add' },
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ];
@@ -17,6 +17,7 @@ export class MenuService {
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ]
   public parentPages = [
+    { title: 'Parent', url: '/parentportal', icon: 'paper-plane' },
     { title: 'Management Bay', url: '/folder/Favorites', icon: 'heart' },
     { title: 'Logout', url: '/logout', icon: 'log-out' },
   ]
