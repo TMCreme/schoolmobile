@@ -47,6 +47,39 @@ export class ManagementbayService {
     }
 
 
+    adminpasswordresetservice(data): Observable<any> {
+      var adminpassreseturl = `${this.base.base_url}/home/api-admin-password-reset/`;
+      var token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "content-type" : "application/json",
+        "Authorization" : "JWT " +token,
+      });
+      
+      return this.http.post(adminpassreseturl, data, {headers:headers}).pipe(
+        map( results => {
+          console.log(results)
+          return results;
+        })
+      )
+    }
+
+
+    adminstudentremark(data): Observable<any> {
+      var adminstudentremarkurl = `${this.base.base_url}/home/api-admin-add-student-remark/`;
+      var token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "content-type" : "application/json",
+        "Authorization" : "JWT " +token,
+      });
+
+      return this.http.post(adminstudentremarkurl, data, {headers:headers}).pipe(
+        map( results => {
+          console.log(results);
+          return results;
+        })
+      )
+    }
+
 
 
 

@@ -1,0 +1,69 @@
+
+
+<ion-header [translucent]="true">
+	<ion-toolbar>
+	  <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+		<!-- <ion-back-button defaultHref="#" ></ion-back-button> -->
+	  </ion-buttons>
+	  <ion-title>Student List </ion-title>
+	</ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-buttons start>
+        <ion-button icon-only (click)="cancel()">
+            <ion-icon name="close"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  <ion-list padding>
+  
+    
+    <ion-grid *ngIf="retrievedStudents">
+      <ion-row>
+        <ion-col>
+          <div>Student</div>
+        </ion-col>
+        <ion-col class="my-right-column">
+          <div></div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let obj of retrievedStudents; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
+        <!-- <ion-item> -->
+        <ion-col>
+          <div>{{obj}}</div>
+        </ion-col>
+
+        <ion-col class="my-right-column">
+          <ion-buttons >
+            <ion-button (click)="presentActionSheet(obj)">
+              <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+            </ion-buttons>
+        </ion-col>
+      <!-- </ion-item> -->
+      </ion-row>
+    
+    </ion-grid>
+
+
+  </ion-list>
+
+
+
+  
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+

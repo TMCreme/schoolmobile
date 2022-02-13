@@ -32,5 +32,20 @@ export class TeacherService {
           return results;
         })
       )
-      }
+    }
+
+    studentLitforSubject(data): Observable<any> {
+      var studentlisturl = `${this.base.base_url}/home/api-student-list-for-subject/`;
+      var token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization" : "JWT "+token,
+      });
+      return this.http.post(studentlisturl, data, {headers:headers}).pipe(
+        map( results => {
+          console.log(results);
+          return results;
+        })
+      )
+    }
 }

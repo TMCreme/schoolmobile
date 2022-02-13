@@ -70,6 +70,18 @@ const routes: Routes = [
   {
     path: 'addevent',
     loadChildren: () => import('./pages/addevent/addevent.module').then( m => m.AddeventPageModule)
+  },
+  {
+    path: 'adminpasswordreset/:name',
+    loadChildren: () => import('./pages/adminpasswordreset/adminpasswordreset.module').then( m => m.AdminpasswordresetPageModule)
+  },
+  {
+    path: 'adminstudentremark',
+    loadChildren: () => import('./pages/adminstudentremark/adminstudentremark.module').then( m => m.AdminstudentremarkPageModule)
+  },
+  {
+    path: 'teacherstudentlist',
+    loadChildren: () => import('./pages/teacherstudentlist/teacherstudentlist.module').then( m => m.TeacherstudentlistPageModule)
   }
 ];
 

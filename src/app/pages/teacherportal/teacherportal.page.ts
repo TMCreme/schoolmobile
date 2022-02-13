@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CacheService } from 'ionic-cache';
 import { CookieService } from 'ngx-cookie-service';
 import { TeacherService } from 'src/app/services/teacher.service';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TeacherstudentlistPage } from '../teacherstudentlist/teacherstudentlist.page';
 
 @Component({
   selector: 'app-teacherportal',
@@ -16,7 +17,7 @@ export class TeacherportalPage implements OnInit {
   constructor(private cookieService: CookieService, private cache: CacheService,
     private loading: LoadingController, private teachserService: TeacherService,
     public actionSheetController: ActionSheetController,
-    private router: Router) { }
+    private router: Router, private modal: ModalController) { }
 
   ngOnInit() {
     this.loadsubjectlist()
@@ -55,8 +56,8 @@ export class TeacherportalPage implements OnInit {
         icon: 'eye',
         handler: () => {
           // Under student list, we will have to add remarks from teachers. 
-          console.log('Edit subject for ', subject);
-          // this.router.navigate([""]);
+          console.log('Edit subject for ', level);
+          this.openstudentlist(subject, level);
         }
       }, {
         text: 'Delete',
@@ -78,6 +79,21 @@ export class TeacherportalPage implements OnInit {
     const { role, data } = await actionSheet.onDidDismiss();
     console.log('onDidDismiss resolved with role and data', subject, level);
 
+  }
+
+
+  async openstudentlist(subject, level){
+    let modal = await this.modal.create({
+      component: TeacherstudentlistPage,
+      componentProps: {subject: subject, level: level}
+    })
+    modal.present();
+
+    const data = await modal.onDidDismiss();
+    if (data) {
+      let remarkdata = data;
+      console.log(data);
+    }
   }
 
 }
