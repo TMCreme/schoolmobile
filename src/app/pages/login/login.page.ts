@@ -65,19 +65,12 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
-<<<<<<< HEAD
     var usertoken = this.cookieService.get("token");
     // if (usertoken){
     //   console.log(usertoken);
     //   this.router.navigate(["adminportal"])
     // }
-=======
-    const usertoken = this.cookieService.get('token');
-    if (usertoken){
-      console.log(usertoken);
-      this.router.navigate(['adminportal']);
-    }
->>>>>>> e4aea615b168440341ee929db4cdfffb59a59c5f
+
   }
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
