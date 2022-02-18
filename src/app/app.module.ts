@@ -20,7 +20,11 @@ import { DocumentViewer, DocumentViewerOptions } from '@awesome-cordova-plugins/
 import { Diagnostic } from '@awesome-cordova-plugins/diagnostic/ngx';
 import { CookieService,  } from 'ngx-cookie-service';
 import { BaseService } from './services/base.service';
-// import { Socket } from 'socket.io';
+import { AddeventPage } from './pages/addevent/addevent.page';
+// import { PtaschedulePage } from './pages/ptaschedule/ptaschedule.page';
+import { PtaschedulePageModule } from './pages/ptaschedule/ptaschedule.module'; 
+import { CalendarModule } from 'ion2-calendar';
+
 
 import Peer from 'peerjs';
 
@@ -31,8 +35,8 @@ import Peer from 'peerjs';
     declarations: [AppComponent],
     imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
         HttpClientModule, CacheModule.forRoot(),
-        IonicStorageModule.forRoot(),
-        FormsModule, ReactiveFormsModule],
+        IonicStorageModule.forRoot(), CalendarModule,
+        FormsModule, ReactiveFormsModule, PtaschedulePageModule],
     providers: [
         TextbookService,
         CacheService,

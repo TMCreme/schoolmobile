@@ -9,6 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoadingController } from '@ionic/angular';
 import { AppComponent } from 'src/app/app.component';
 import { CacheService } from 'ionic-cache';
+import { NavController } from '@ionic/angular';
+import { MenuService } from 'src/app/services/menu.service';
 
 
 @Component({
@@ -40,7 +42,8 @@ export class LoginPage implements OnInit {
   constructor(private loadingController: LoadingController,
     private base: BaseService, public cacheService: CacheService,
     private cookieService: CookieService, private router: Router,
-    public formBuilder: FormBuilder, ) {
+    public formBuilder: FormBuilder, private appcomponent: AppComponent,
+    private navCtrl: NavController, private menu: MenuService) {
       this.loginform = this.formBuilder.group({
         username: new FormControl('', Validators.compose([
           Validators.required,
@@ -62,6 +65,11 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
+    const usertoken = this.cookieService.get('token');
+    if (usertoken){
+      console.log(usertoken);
+      this.router.navigate(['adminportal']);
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -80,15 +88,36 @@ export class LoginPage implements OnInit {
     this.base.login(this.user), groupKey, ttl);
     response.subscribe((data) => {
       console.log(data);
-      if (data.status==='success') {
+      // eslint-disable-next-line eqeqeq
+      if (data.status=='success') {
         this.cookieService.set('token', data.token);
         this.cookieService.set('organization', data.organization);
+        this.cookieService.set('usergroup', data.group);
+        this.cookieService.set('loggedinuser', this.loginform.value.username);
         this.loginform.reset();
-        this.router.navigate(['directory']);
+        this.appcomponent.appPages = this.menu.dynamicMenu();
+        // eslint-disable-next-line eqeqeq
+        if (data.group == 'SchoolAdmin') {
+          this.router.navigate(['adminportal']);
+        // eslint-disable-next-line eqeqeq
+        }else if (data.group == 'Teacher'){
+          this.router.navigate(['teacherportal']);
+        // eslint-disable-next-line eqeqeq
+        } else if (data.group == 'ParentOrGuardian'){
+          this.router.navigate(['parentportal']);
+        }else {
+          this.router.navigate(['/directory']);
+        }
         loading.dismiss();
 
+      // eslint-disable-next-line eqeqeq
+      }else if(data.status=='Inactive'){
+        console.log(data.data.message);
+        this.loginform.reset();
+        this.router.navigate(['changepassword']);
+        loading.dismiss();
       }else {
-        console.log(data.error);
+        console.log('Logging Error' + data.error);
         this.cacheService.removeItem('userauthdata');
         loading.dismiss();
         alert('Login Error:  ' + data.error);

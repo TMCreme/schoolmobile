@@ -18,9 +18,9 @@ export class LogoutPage implements OnInit {
     this.base.logout().subscribe((data) =>{
       console.log(data);
       if(data.status=="success"){
-        this.cookieService.delete("token");
+        this.cookieService.deleteAll();
         this.cache.removeItem("userauthdata")
-        this.router.navigate(["directory"])
+        this.router.navigate(["login"])
       }else{
         console.log(data);
         alert("Logout Error   "+ data.error)

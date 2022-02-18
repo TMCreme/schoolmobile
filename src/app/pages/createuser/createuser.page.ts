@@ -6,17 +6,10 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { BaseService } from 'src/app/services/base.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { CacheService } from 'ionic-cache';
 
 
-export class User {
-	constructor(
-		username: string,
-		password: string,
-		email?: string,
-		){
 
-	}
-}
 @Component({
   selector: 'app-createuser',
   templateUrl: './createuser.page.html',
@@ -42,7 +35,7 @@ export class CreateuserPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, 
     private base: BaseService, private cookieService: CookieService, 
-    private router: Router) { 
+    private router: Router, private cache: CacheService) { 
       this.registerForm = this.formBuilder.group({
         username: new FormControl("", Validators.compose([
           Validators.required,
@@ -61,7 +54,7 @@ export class CreateuserPage implements OnInit {
         ]))
       });
     }
-    public user: any = new User(null, null)
+    public user: any;
 
 
   ngOnInit() {
@@ -83,9 +76,20 @@ export class CreateuserPage implements OnInit {
     this.base.userCreation(this.user).subscribe((data) => {
       console.log(data);
       this.data = data.message;
-      alert(this.data);
+      this.cookieService.set("addedusergroup", this.registerForm.value.usertype)
+      if (this.registerForm.value.usertype != "SchoolAdmin" || 
+      this.registerForm.value.usertype != "Teacher"){
+        if (this.registerForm.value.usertype == "ParentOrGuardian") {
+          this.cookieService.set("parentname", this.registerForm.value.username)
+        }else if (this.registerForm.value.usertype == "Student"){
+          this.cookieService.set("studentname", this.registerForm.value.username)
+        }
+        this.router.navigate(["userassociation"])
+      }else {
+        this.router.navigate(['directory'])
+      }
       this.registerForm.reset();
-      this.router.navigate(['directory'])
+      
     }, (error) => {
       console.log(error)
       this.data = error.error;
