@@ -64,10 +64,10 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     var usertoken = this.cookieService.get("token");
-    if (usertoken){
-      console.log(usertoken);
-      this.router.navigate(["adminportal"])
-    }
+    // if (usertoken){
+    //   console.log(usertoken);
+    //   this.router.navigate(["adminportal"])
+    // }
   }
 
   async LoginUser() {
