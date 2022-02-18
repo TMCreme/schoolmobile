@@ -12,44 +12,49 @@ import { delay, map } from 'rxjs/operators';
 export class BaseService {
 
   public headers = new HttpHeaders({
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     'Content-type': 'application/json',
-  })
+  });
   userprofile: any;
-  base_url = "http://127.0.0.1:8030";
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  base_url = 'http://46.51.157.194:8192';
 
   constructor( private http: HttpClient, private cookieService: CookieService) { }
 
 userCreation(user): Observable<any> {
-  let registrationurl = `${this.base_url}/home/api-register-user/`
+  const registrationurl = `${this.base_url}/home/api-register-user/`;
   return this.http.post(registrationurl, user, {headers:this.headers}).pipe(
     map(results => {
       console.log(results);
       return results;
     })
-  )
+  );
 }
 
 login(user): Observable<any> {
-  let loginurl: string = `${this.base_url}/home/api-login-user/`;
+  const loginurl = `${this.base_url}/home/api-login-user/`;
   return this.http.post(loginurl, user, {headers: this.headers}).pipe(
     map(results => {
       console.log(results);
       return results;
     })
-  )
+  );
 }
 
 
 logout(): Observable <any> {
-  var token = this.cookieService.get("token");
-  var headers = new HttpHeaders({
-    "Content-Type": "application/json",
-    "Authorization" : "JWT "+token,
+  const token = this.cookieService.get('token');
+  const headers = new HttpHeaders({
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    'Content-Type': 'application/json',
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    Authorization : 'JWT '+token,
   });
-  let logouturl = `${this.base_url}/home/api-logout-user/`;
-  return this.http.post(logouturl, {"auth_token": token}, {headers:headers}).pipe(
+  const logouturl = `${this.base_url}/home/api-logout-user/`;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  return this.http.post(logouturl, {auth_token: token}, {headers}).pipe(
     map(results => {
-      console.log(results)
+      console.log(results);
       return results;
     })
   );
@@ -85,6 +90,6 @@ logout(): Observable <any> {
 
 
 
-    
+
   }
-  
+

@@ -16,11 +16,10 @@
   <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
     <img style="margin: 10px 10px 20px 35%;" src="../assets/loginicon3.png">
     <form [formGroup]="registerForm" role="form" (ngSubmit)="RegisterUser()" #LoginForm="ngForm">
-      
       <ion-item>
         <ion-input id="register-username" name='username' formControlName="username" type="text" class="form-control" placeholder="Username"></ion-input>
       </ion-item>
-  
+
       <div class="error-messages">
         <ng-container *ngFor="let error of error_messages.username">
           <div class="error-messages" *ngIf="registerForm.get('username').hasError(error.type) && (registerForm.get('username').dirty || registerForm.get('username').touched)">
@@ -28,11 +27,11 @@
           </div>
         </ng-container>
       </div>
-  
+
       <!-- <ion-item>
         <ion-input id="register-email" name='email' formControlName="email" type="text" class="form-control" placeholder="Email"></ion-input>
       </ion-item> -->
-  
+
       <!-- <div class="error-messages">
         <ng-container *ngFor="let error of error_messages.email">
           <div class="error-messages" *ngIf="registerForm.get('email').hasError(error.type) && (registerForm.get('email').dirty || registerForm.get('email').touched)">
@@ -40,12 +39,12 @@
           </div>
         </ng-container>
       </div> -->
-  
+
       <ion-item>
-           
+
         <ion-input id="login-password" formControlName="password" type="password" name="password" class="form-control" placeholder="Password"></ion-input>
       </ion-item>
-  
+
       <div class="error-messages">
           <ng-container *ngFor="let error of error_messages.password">
             <div class="error-messages" *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
@@ -53,11 +52,11 @@
             </div>
           </ng-container>
         </div>
-  
+
         <ion-item>
             <ion-input id="login-password2" formControlName="password2" type="password" name="password2" class="form-control" placeholder="Password Confirmation"></ion-input>
           </ion-item>
-  
+
           <div class="error-messages">
               <ng-container >
                 <div class="error-messages" *ngIf="registerForm.value.password !== registerForm.value.password2 ">
@@ -77,13 +76,13 @@
               </ion-select>
             </ion-item>
 
-  
-  
+
+
       <ion-button id="loginbutton" (click)=registration() [disabled]="!registerForm.valid" shape="round" size="default"  expand="block">Submit</ion-button>
       <div class="form-group">
           <div class="col-md-12 control">
               <div style="border-top: 1px solid#888; padding-top:15px; padding-left: 20px; font-size:85%" >
-                  Already have an account! 
+                  Already have an account!
               <a routerLink="/login">
                   Login Here
               </a>
