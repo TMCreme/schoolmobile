@@ -15,7 +15,7 @@ import { ChangepasswordPage } from './changepassword.page';
     IonicModule,
     ReactiveFormsModule,
     ChangepasswordPageRoutingModule
-    
+
   ],
   declarations: [ChangepasswordPage]
 })
