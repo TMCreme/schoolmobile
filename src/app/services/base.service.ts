@@ -23,14 +23,8 @@ export class BaseService {
     'Content-type': 'application/json',
   });
   userprofile: any;
-<<<<<<< HEAD
-  public base_url = "http://46.51.157.194:8192";
-  // public base_url = "http://127.0.0.1:8030";
-=======
   // public base_url = "http://46.51.157.194:8192";
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  public base_url = 'http://127.0.0.1:8030';
->>>>>>> e4aea615b168440341ee929db4cdfffb59a59c5f
+  public base_url = "http://127.0.0.1:8030";
 
   constructor( private http: HttpClient, private cookieService: CookieService) { }
 

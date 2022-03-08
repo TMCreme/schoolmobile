@@ -51,17 +51,15 @@ export class TeacherService {
 
 
 
-    postassignment(data) {
+    postassignment(formdata) {
       var assignmenturl = `${this.base.base_url}/home/api-teacher-add-assignment/`;
       var token = this.cookieService.get("token");
       var headers = new HttpHeaders({
-        'Access-Control-Allow-Headers' : 'Content-Type, Access-Control-Allow-Origin, Authorization, Access-Control-Allow-Methods',
-        "Content-type" : "multipart/form-data",
-        "Access-Control-Allow-Origin": "http://127.0.0.1:8100",
+        "Content-type" : "application/json",
         "Authorization" : "JWT "+token,
       });
-
-      return this.http.post(assignmenturl, data, {headers:headers}).pipe(
+      // console.log(formdata)
+      return this.http.post(assignmenturl, formdata, {headers:headers}).pipe(
         map( results => {
           console.log(results);
           return results;

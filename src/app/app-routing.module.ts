@@ -86,6 +86,14 @@ const routes: Routes = [
   {
     path: 'teacheraddassignment',
     loadChildren: () => import('./pages/teacheraddassignment/teacheraddassignment.module').then( m => m.TeacheraddassignmentPageModule)
+  },
+  {
+    path: 'adminaddtimetable',
+    loadChildren: () => import('./pages/adminaddtimetable/adminaddtimetable.module').then( m => m.AdminaddtimetablePageModule)
+  },
+  {
+    path: 'adminlistclass',
+    loadChildren: () => import('./pages/adminlistclass/adminlistclass.module').then( m => m.AdminlistclassPageModule)
   }
 ];
 

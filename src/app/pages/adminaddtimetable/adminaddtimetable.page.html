@@ -19,35 +19,20 @@
   </ion-buttons>
 <ion-list padding>
   <!-- <ion-row> -->
-    <ion-item>
+    <!-- <ion-item>
         <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
-    </ion-item>
+    </ion-item> -->
     <!-- </ion-row>   -->
 
     <ion-item>
-    <input [(ngModel)]="newfile" type="file" placeholder="File" (change)="onFileChange($event)">  
+    <input [(ngModel)]="timtablefile" type="file" placeholder="File" (change)="onFileChange($event)">  
     </ion-item>
 
 
 
-    <ion-item>
-  <ion-datetime displayFormat="YYYY-MM-DD HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="due_date">
-
-  </ion-datetime>
-  </ion-item>
 
 
-    <ion-item>
-        <ion-textarea placeholder="notes" [(ngModel)]="notes" rows="5"></ion-textarea>
-    </ion-item>
-  
-
-
-
-
-
-
-    <ion-button block icon-left (click)="submitAssignmentForm()"  shape="round" size="default" expand="block">
+    <ion-button block icon-left (click)="uploadtimetable()"  shape="round" size="default" expand="block">
       <ion-icon name="checkmark"></ion-icon>
         Save
       </ion-button>

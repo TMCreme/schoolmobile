@@ -80,8 +80,39 @@ export class ManagementbayService {
       )
     }
 
+    adminlistclassview(data): Observable<any> {
+      var adminlistclassurl = `${this.base.base_url}/home/api-admin-list-classes/`;
+      var token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "content-type" : "application/json",
+        "Authorization" : "JWT " +token,
+      });
+      return this.http.post(adminlistclassurl, data, {headers:headers}).pipe(
+        map( results => {
+          console.log(results);
+          return results;
+        })
+      )
+    }
 
 
+    adminaddtimetableview(data): Observable<any> {
+      var adminuploadtimetableurl = `${this.base.base_url}/home/api-admin-upload-class-timetable/`;
+      var token = token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "Content-type" : "application/json",
+        "Authorization" : "JWT "+token,
+      })
+      return this.http.post(adminuploadtimetableurl, data, {headers:headers}).pipe(
+        map(results => {
+          console.log(results);
+          return results;
+        })
+      )
+    }
+
+
+ 
 
 
 }

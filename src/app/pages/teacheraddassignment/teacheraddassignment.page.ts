@@ -17,7 +17,8 @@ export class TeacheraddassignmentPage implements OnInit {
   @Input("level") level;
     name;
     notes;
-    file: File;
+    file;
+    newfile;
     public due_date :any =new  Date().toJSON()
 
   constructor(private teacherService: TeacherService,
@@ -31,7 +32,13 @@ export class TeacheraddassignmentPage implements OnInit {
   }
 
   onFileChange(fileChangeEvent) {
-    this.file = fileChangeEvent.target.files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(fileChangeEvent.target.files[0]);
+    
+    fileReader.onload = () => {
+      // console.log(fileReader.result)
+      this.file = fileReader.result;
+    }
   }
 
   cancel(){
@@ -47,26 +54,19 @@ export class TeacheraddassignmentPage implements OnInit {
       message: 'Please wait....',
     });
     await loading.present();
-    let formData = new FormData();
-    formData.append("file", this.file, this.file.name);
-    formData.append("name", this.name)
-    formData.append("school", this.cookieService.get("organization"))
-    formData.append("subject", this.subject)
-    formData.append("level", this.level)
-    formData.append("notes", this.notes)
-    formData.append("due_date", this.due_date)
-    var data = JSON.stringify({
+   
+    var jsonData = JSON.stringify({
       "school" : this.cookieService.get("organization"),
       "subject" : this.subject,
       "level" : this.level,
       "name" : this.name,
-      "file" : this.file,
       "notes" : this.notes,
-      "date_due" : this.due_date
+      "date_due" : this.due_date,
+      "file" : this.file
     })
     
     let reponse = this.cache.loadFromObservable("teacherpostedassignment",
-    this.teacherService.postassignment(formData), "teacherpostedassignment", 5);
+    this.teacherService.postassignment(jsonData), "teacherpostedassignment", 5);
 
     reponse.subscribe( results => {
       console.log(results );
