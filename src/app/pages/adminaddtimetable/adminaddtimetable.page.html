@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+	  <ion-buttons slot="start">
+		<ion-menu-button></ion-menu-button>
+		<!-- <ion-back-button defaultHref="#" ></ion-back-button> -->
+	  </ion-buttons>
+	  <ion-title>Fiala</ion-title>
+	</ion-toolbar>
+  </ion-header>
+
+
+
+<ion-content class="has-header">
+
+  <ion-buttons start>
+      <button ion-button icon-only (click)="cancel()">
+          <ion-icon name="close"></ion-icon>
+      </button>
+  </ion-buttons>
+<ion-list padding>
+  <!-- <ion-row> -->
+    <!-- <ion-item>
+        <ion-input type="text" placeholder="Name" [(ngModel)]="name"></ion-input>
+    </ion-item> -->
+    <!-- </ion-row>   -->
+
+    <ion-item>
+    <input [(ngModel)]="timtablefile" type="file" placeholder="File" (change)="onFileChange($event)">  
+    </ion-item>
+
+
+
+
+
+    <ion-button block icon-left (click)="uploadtimetable()"  shape="round" size="default" expand="block">
+      <ion-icon name="checkmark"></ion-icon>
+        Save
+      </ion-button>
+
+
+</ion-list>
+
+
+</ion-content>

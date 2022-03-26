@@ -6,6 +6,11 @@ import { LoadingController, ModalController } from '@ionic/angular';
 import { ActionSheetController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { TeacherstudentlistPage } from '../teacherstudentlist/teacherstudentlist.page';
+import { TeacheraddassignmentPage } from '../teacheraddassignment/teacheraddassignment.page';
+
+
+
+
 
 @Component({
   selector: 'app-teacherportal',
@@ -56,10 +61,31 @@ export class TeacherportalPage implements OnInit {
         icon: 'eye',
         handler: () => {
           // Under student list, we will have to add remarks from teachers. 
-          console.log('Edit subject for ', level);
+          console.log('View Student List for  ', level);
           this.openstudentlist(subject, level);
         }
-      }, {
+      }, 
+      {
+        text: 'Post an Assignment',
+        icon: 'add-circle',
+        handler: () => {
+          // Under student list, we will have to add remarks from teachers. 
+          console.log('Edit subject for ', level);
+          this.openAssignmentModal(subject, level);
+        }
+      },
+
+      {
+        text: 'View Previous Assignments',
+        icon: 'eye',
+        handler: () => {
+          // Under student list, we will have to add remarks from teachers. 
+          console.log('Edit subject for ', level);
+          this.openPreviousAssignmentModal(subject, level);
+        }
+      },
+
+      {
         text: 'Delete',
         icon: 'trash',
         handler: () => {
@@ -96,4 +122,36 @@ export class TeacherportalPage implements OnInit {
     }
   }
 
+
+  async openAssignmentModal(subject, level) {
+    let modal = await this.modal.create({
+      component: TeacheraddassignmentPage,
+      componentProps: {subject: subject, level: level}
+    })
+    modal.present();
+
+    const data = await modal.onDidDismiss();
+    if (data) {
+      let remarkdata = data;
+      console.log(data);
+    }
+  }
+
+  async openPreviousAssignmentModal(subject, level) {
+    let modal = await this.modal.create({
+      component: TeacherstudentlistPage,
+      componentProps: {subject: subject, level: level}
+    })
+    modal.present();
+
+    const data = await modal.onDidDismiss();
+    if (data) {
+      let remarkdata = data;
+      console.log(data);
+    }
+  }
+
 }
+
+
+

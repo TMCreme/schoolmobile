@@ -48,4 +48,24 @@ export class TeacherService {
         })
       )
     }
+
+
+
+    postassignment(formdata) {
+      var assignmenturl = `${this.base.base_url}/home/api-teacher-add-assignment/`;
+      var token = this.cookieService.get("token");
+      var headers = new HttpHeaders({
+        "Content-type" : "application/json",
+        "Authorization" : "JWT "+token,
+      });
+      // console.log(formdata)
+      return this.http.post(assignmenturl, formdata, {headers:headers}).pipe(
+        map( results => {
+          console.log(results);
+          return results;
+        })
+      )
+    }
+
+
 }
