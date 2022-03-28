@@ -14,6 +14,7 @@
     <img src="assets/Frontpage.jpg">
   </div>
  <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
+
   <form class="logpage" [formGroup]="loginform" role="form" (ngSubmit)="LoginUser()" >
     <ion-item class="loguser">
       <ion-icon name="person"></ion-icon><ion-input id="login-username" name='username' formControlName="username" type="text"  placeholder="Username" ion-margin-bottom></ion-input>
@@ -44,5 +45,6 @@
 
     </div>
   </form>
-  </div>
+</div>
 </ion-content>
+

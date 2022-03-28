@@ -1,3 +1,7 @@
+/* eslint-disable no-var */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable quote-props */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseService } from './base.service';
@@ -15,104 +19,104 @@ export class ManagementbayService {
 
 
     getptaschedule(): Observable<any> {
-      var ptascheduleurl = `${this.base.base_url}/home/api-add-ptaschedule/`;
-      var token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "Content-Type": "application/json",
-        "Authorization" : "JWT "+token,
+      const ptascheduleurl = `${this.base.base_url}/home/api-add-ptaschedule/`;
+      const token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization' : 'JWT '+token,
       });
-      return this.http.get(ptascheduleurl, {headers:headers}).pipe(
+      return this.http.get(ptascheduleurl, {headers}).pipe(
         map( results => {
           console.log(results);
           return results;
         })
-      ) 
+      );
     }
 
 
 
     savepatschedule(data): Observable<any> {
-      var ptascheduleurl = `${this.base.base_url}/home/api-add-ptaschedule/`;
-      var token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "Content-Type": "application/json",
-        "Authorization" : "JWT "+token,
+      const ptascheduleurl = `${this.base.base_url}/home/api-add-ptaschedule/`;
+      const token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization' : 'JWT '+token,
       });
-      return this.http.post(ptascheduleurl, data, {headers:headers}).pipe(
+      return this.http.post(ptascheduleurl, data, {headers}).pipe(
         map( results => {
           console.log(results);
           return results;
         })
-      )
+      );
     }
 
 
     adminpasswordresetservice(data): Observable<any> {
-      var adminpassreseturl = `${this.base.base_url}/home/api-admin-password-reset/`;
-      var token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "content-type" : "application/json",
-        "Authorization" : "JWT " +token,
+      const adminpassreseturl = `${this.base.base_url}/home/api-admin-password-reset/`;
+      const token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'content-type' : 'application/json',
+        'Authorization' : 'JWT ' +token,
       });
-      
-      return this.http.post(adminpassreseturl, data, {headers:headers}).pipe(
+
+      return this.http.post(adminpassreseturl, data, {headers}).pipe(
         map( results => {
-          console.log(results)
+          console.log(results);
           return results;
         })
-      )
+      );
     }
 
 
     adminstudentremark(data): Observable<any> {
-      var adminstudentremarkurl = `${this.base.base_url}/home/api-admin-add-student-remark/`;
-      var token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "content-type" : "application/json",
-        "Authorization" : "JWT " +token,
+      const adminstudentremarkurl = `${this.base.base_url}/home/api-admin-add-student-remark/`;
+      const token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'content-type' : 'application/json',
+        'Authorization' : 'JWT ' +token,
       });
 
-      return this.http.post(adminstudentremarkurl, data, {headers:headers}).pipe(
+      return this.http.post(adminstudentremarkurl, data, {headers}).pipe(
         map( results => {
           console.log(results);
           return results;
         })
-      )
+      );
     }
 
     adminlistclassview(data): Observable<any> {
-      var adminlistclassurl = `${this.base.base_url}/home/api-admin-list-classes/`;
-      var token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "content-type" : "application/json",
-        "Authorization" : "JWT " +token,
+      const adminlistclassurl = `${this.base.base_url}/home/api-admin-list-classes/`;
+      const token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'content-type' : 'application/json',
+        'Authorization' : 'JWT ' +token,
       });
-      return this.http.post(adminlistclassurl, data, {headers:headers}).pipe(
+      return this.http.post(adminlistclassurl, data, {headers}).pipe(
         map( results => {
           console.log(results);
           return results;
         })
-      )
+      );
     }
 
 
     adminaddtimetableview(data): Observable<any> {
-      var adminuploadtimetableurl = `${this.base.base_url}/home/api-admin-upload-class-timetable/`;
-      var token = token = this.cookieService.get("token");
-      var headers = new HttpHeaders({
-        "Content-type" : "application/json",
-        "Authorization" : "JWT "+token,
-      })
-      return this.http.post(adminuploadtimetableurl, data, {headers:headers}).pipe(
+      const adminuploadtimetableurl = `${this.base.base_url}/home/api-admin-upload-class-timetable/`;
+      var token = token = this.cookieService.get('token');
+      const headers = new HttpHeaders({
+        'Content-type' : 'application/json',
+        'Authorization' : 'JWT '+token,
+      });
+      return this.http.post(adminuploadtimetableurl, data, {headers}).pipe(
         map(results => {
           console.log(results);
           return results;
         })
-      )
+      );
     }
 
 
- 
+
 
 
 }

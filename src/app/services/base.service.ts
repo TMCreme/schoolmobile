@@ -23,14 +23,8 @@ export class BaseService {
     'Content-type': 'application/json',
   });
   userprofile: any;
-<<<<<<< HEAD
-  public base_url = "http://schmgt.herokuapp.com";
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  /* public base_url = 'http://127.0.0.1:8030'; */
-=======
   // public base_url = "http://46.51.157.194:8192";
-  public base_url = "http://127.0.0.1:8030";
->>>>>>> 029007b15a96183c70b1ccd46bfbf1bdc59d72bf
+  public base_url = "http://schmgt.herokuapp.com";
 
   constructor( private http: HttpClient, private cookieService: CookieService) { }
 

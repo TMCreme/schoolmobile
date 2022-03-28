@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/quotes */
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -65,6 +66,7 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
+    // eslint-disable-next-line no-var
     var usertoken = this.cookieService.get("token");
     // if (usertoken){
     //   console.log(usertoken);
