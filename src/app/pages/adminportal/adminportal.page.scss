@@ -1,0 +1,55 @@
+ion-content{
+  --background: linear-gradient(197deg, rgb(64, 130, 146) 0%, rgb(50, 137, 158) 13.5%, rgb(16, 139, 139) 33.33%, white) !important;
+}
+ion-label{
+  display: block;
+}
+
+.user-content{
+  width: 100%;
+  padding-top: 20px;
+
+  .user-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    padding-bottom: 38px;
+}
+
+}
+.welcome{
+  font-size: 15px;
+  color: white;
+  font-weight: 500;
+}
+.username{
+font-size: 24px;
+color: white;
+}
+.main-content{
+background-color: white;
+width: 100%;
+border-top-right-radius: 50px;
+border-top-left-radius: 50px;
+padding-top: 20px;
+padding-left: 10px;
+.header-label{
+  text-align: center;
+}
+ion-grid{
+  padding: 0px;
+}
+.col-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+padding: 14px;
+overflow: hidden;
+.usermgtimg{
+  width: 70px;
+  border-radius: 50%;
+}
+}
+}
