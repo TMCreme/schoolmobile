@@ -4,6 +4,7 @@ ion-content{
 }
 ion-label{
   display: block;
+  color: black;
 }
 a{
   text-decoration: none;
@@ -17,10 +18,20 @@ a{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-left: 15px;
+    margin-left: 10px;
     padding-bottom: 38px;
 }
-
+.second_div{
+ margin-right: 20px;
+}
+.menu_btn{
+  margin-bottom: 10px;
+}
+.headerMain{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 }
 .welcome{
   font-size: 15px;
