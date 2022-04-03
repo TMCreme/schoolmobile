@@ -17,8 +17,8 @@
         </ion-button>
     </ion-buttons>
   <ion-list padding>
-  
-    
+
+
     <ion-grid *ngIf="retrievedStudents">
       <ion-row>
         <ion-col>
@@ -29,7 +29,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row *ngFor="let obj of retrievedStudents; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
+      <ion-row *ngFor="let obj of retrievedStudents; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
         <!-- <ion-item> -->
         <ion-col>
           <div>{{obj}}</div>
@@ -44,7 +44,7 @@
         </ion-col>
       <!-- </ion-item> -->
       </ion-row>
-    
+
     </ion-grid>
 
 
@@ -52,7 +52,7 @@
 
 
 
-  
+
 </ion-content>
 
 

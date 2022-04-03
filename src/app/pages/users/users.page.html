@@ -1,7 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <!-- <ion-menu-button></ion-menu-button> -->
       <ion-back-button defaultHref="#" ></ion-back-button>
     </ion-buttons>
     <ion-title>Users</ion-title>
@@ -24,8 +23,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row *ngFor="let user of retrievedUsers; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
-        <!-- <ion-item> -->
+     <!--  <ion-row *ngFor="let user of retrievedUsers; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
         <ion-col>
           <div>{{user.username}}</div>
         </ion-col>
@@ -39,13 +37,13 @@
             </ion-button>
             </ion-buttons>
         </ion-col>
-      <!-- </ion-item> -->
+
       </ion-row>
-    
+ -->
     </ion-grid>
 
   </div>
 
-  
+
 
 </ion-content>

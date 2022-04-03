@@ -21,7 +21,7 @@
         </ion-col>
       </ion-row>
 
-      <ion-row *ngFor="let obj of retrievedclasses; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
+      <ion-row *ngFor="let obj of retrievedclasses; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
         <!-- <ion-item> -->
         <ion-col>
           <div>{{obj.name}}</div>
@@ -35,12 +35,12 @@
         </ion-col>
       <!-- </ion-item> -->
       </ion-row>
-    
+
     </ion-grid>
 
   </div>
 
-  
+
 
 </ion-content>
 
