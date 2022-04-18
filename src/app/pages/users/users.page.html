@@ -12,26 +12,25 @@
 
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col size="5">
           <div>Username</div>
         </ion-col>
-        <ion-col size-md="8">
+        <ion-col size="5">
           <div>Role</div>
         </ion-col>
-        <ion-col class="my-right-column">
-          <div></div>
+        <ion-col  size="2">
         </ion-col>
       </ion-row>
-
-     <!--  <ion-row *ngFor="let user of retrievedUsers; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
-        <ion-col>
+      <ion-row *ngFor="let user of retrievedUsers; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
+        <ion-col size="5" class="username">
           <div>{{user.username}}</div>
         </ion-col>
-        <ion-col size-md="3">
-          <div>{{user.group}}</div>
+        <ion-col size="5" class="username">
+         <div>{{user.group}}</div>
         </ion-col>
-        <ion-col class="my-right-column">
+        <ion-col size="2"  >
           <ion-buttons >
+
             <ion-button (click)="presentActionSheet(user.username, user.group)">
               <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
             </ion-button>
@@ -39,7 +38,6 @@
         </ion-col>
 
       </ion-row>
- -->
     </ion-grid>
 
   </div>

@@ -2,6 +2,15 @@ ion-title{
   text-align: center;
   margin-right: 55px;
 }
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.user-details{
+  text-align: center;
+}
 .odd{
     color: white;
     background-color: rgb(135, 134, 135);
@@ -15,7 +24,16 @@ ion-title{
     border: 0.1px  rgb(194, 193, 193);
     text-align: center;
   }
-
+  .username{
+    margin-top: 15px;
+  }
+  .header{
+    padding-bottom: 20px;
+  }
+.userGroupAndBtn{
+  display: flex;
+  flex-direction: column;
+}
 ion-col.my-right-column {
     flex: 0 0 4px;
     padding: 0;
