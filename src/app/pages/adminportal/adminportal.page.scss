@@ -13,7 +13,7 @@ a{
 .user-content{
   width: 100%;
   padding-top: 20px;
-
+ overflow: hidden;
   .user-div{
     width: 100%;
     display: flex;
@@ -52,7 +52,7 @@ border-top-right-radius: 50px;
 border-top-left-radius: 50px;
 padding-top: 20px;
 padding-left: 10px;
-overflow: hidden;
+height: fit-content;
 .header-label{
   text-align: center;
   color: rgb(64, 130, 146);
