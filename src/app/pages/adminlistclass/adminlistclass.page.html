@@ -2,7 +2,6 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      <!-- <ion-back-button defaultHref="#" ></ion-back-button> -->
     </ion-buttons>
     <ion-title>Admin-Class</ion-title>
   </ion-toolbar>
@@ -12,17 +11,33 @@
   <div id="container" >
 
     <ion-grid>
-      <ion-row>
+      <ion-row *ngFor="let obj of retrievedclasses; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
         <ion-col>
-          <div>Class</div>
+          <ion-list>
+
+            <ion-item>
+
+              <ion-label><div>{{obj.name}}</div>
+              </ion-label>
+              <ion-note slot="end"><ion-buttons >
+                <ion-button (click)="presentActionSheet(obj.name)">
+                  <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+                </ion-button>
+                </ion-buttons></ion-note>
+            </ion-item>
+
+
+
+          </ion-list>
         </ion-col>
-        <ion-col class="my-right-column">
+
+      <!--   <ion-col class="my-right-column">
           <div></div>
         </ion-col>
       </ion-row>
 
       <ion-row *ngFor="let obj of retrievedclasses; let i = index;" [ngClass]="(i % 2 === 0) ? 'odd' : 'even'">
-        <!-- <ion-item> -->
+
         <ion-col>
           <div>{{obj.name}}</div>
         </ion-col>
@@ -33,7 +48,7 @@
             </ion-button>
             </ion-buttons>
         </ion-col>
-      <!-- </ion-item> -->
+ -->
       </ion-row>
 
     </ion-grid>
