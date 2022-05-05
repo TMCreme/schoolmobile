@@ -33,7 +33,7 @@
 
 <ion-content class="has-header">
 
-	
+
 
 	<ion-item color="primary">
 		<ion-title>PTA Schedule</ion-title>
@@ -65,16 +65,18 @@
 				<ion-col>
 					{{item.title}}
 				</ion-col>
-				
+
 			</ion-row>
 		<!-- </ion-item> -->
 	</ion-grid>
 	<hr>
 
 	<ion-row ion-content>
-		<ion-col col-12>
-			<ion-button color="secondary" small (click)="addEvent()">Schedule PTA Meeting</ion-button>
-		</ion-col>
+    <div class="ptaBtn">
+
+			<ion-button color="secondary" small (click)="addEvent()" >Schedule PTA Meeting</ion-button>
+
+  </div>
 		<!-- <ion-col col-3>
 			<ion-select [(ngModel)]="calendar.mode" style="max-width: 100%">
 				<ion-select-option (ionSelect)="onOptionSelected($event)" *ngFor="let mode of calendarModes" [value]="mode.key">{{mode.value}}
@@ -82,7 +84,7 @@
 			</ion-select>
 		</ion-col> -->
 	</ion-row>
-	<!-- <ion-calendar  [attr.markdisabled]="markDisabled"  
+	<!-- <ion-calendar  [attr.markdisabled]="markDisabled"
 	 (onCurrentDateChanged)="onCurrentDateChanged($event)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
 	 (onTimeSelected)="onTimeSelected($event)" step="30">
 	</ion-calendar> -->

@@ -35,7 +35,7 @@ export class UsersPage implements OnInit {
     let response = this.cache.loadFromObservable("adminviewuserlist",
     this.userService.userList(), "adminviewuserlist", 5)
     response.subscribe(data => {
-      
+
       this.retrievedUsers = data.data
       console.log(this.retrievedUsers)
       loading.dismiss()
@@ -68,7 +68,7 @@ export class UsersPage implements OnInit {
           }else {
             alert("The user is not a student")
             actionSheet.dismiss()
-          }          
+          }
         }
       },
       {
@@ -126,6 +126,6 @@ export class UsersPage implements OnInit {
 
 
 
-  
+
 
 }

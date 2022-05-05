@@ -12,7 +12,7 @@ import { AddeventPage } from '../addevent/addevent.page';
   styleUrls: ['./ptaschedule.page.scss'],
 })
 export class PtaschedulePage implements OnInit {
-  loadedmettings
+  loadedmettings;
   selectedDay = new Date();
   selectedObject;
   eventSource = [];
@@ -38,7 +38,7 @@ export class PtaschedulePage implements OnInit {
     this.loadEvents()
   }
 
-  
+
 
   async loadEvents(){
     // getptaschedule\
@@ -46,7 +46,7 @@ export class PtaschedulePage implements OnInit {
       cssClass: 'my-login-class',
       message: 'Please wait....',
     });
-    await loading.present() 
+    await loading.present()
     let response = this.cache.loadFromObservable("ptaschedulelist",
     this.mgtService.getptaschedule(), "ptaschedulelist", 3)
 
@@ -55,10 +55,10 @@ export class PtaschedulePage implements OnInit {
       if (data.status == "success") {
         this.loadedmettings = data.data
         loading.dismiss()
-      }else { 
+      }else {
 
       }
-      
+
     })
     console.log()
   }
@@ -123,11 +123,11 @@ export class PtaschedulePage implements OnInit {
             console.log("meet up with Clicked")
           }
         }
-      ] 
+      ]
     }); actionsheet.present();
   }
 
-// Blocking day event is not implemented because I have no need for it yet. 
+// Blocking day event is not implemented because I have no need for it yet.
   blockDayEvent(date){
     let startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
 

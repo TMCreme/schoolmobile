@@ -14,7 +14,6 @@
     </ion-toolbar>
   </ion-header>
   <div id="container" padding justify-content-center align-items-center style="height: 100%; width: 100%;">
-    <img style="margin: 10px 10px 20px 35%;" src="../assets/loginicon3.png">
     <form [formGroup]="registerForm" role="form" (ngSubmit)="registration()" #LoginForm="ngForm">
 
       <ion-item>
@@ -80,10 +79,10 @@
 
 
 
-      <ion-button id="loginbutton" (click)=registration() [disabled]="!registerForm.valid" shape="round" size="default"  expand="block">Submit</ion-button>
+      <ion-button id="loginbutton" (click)=registration() [disabled]="!registerForm.valid" shape="round" size="default"  expand="block" style="margin-top: 20px;">Submit</ion-button>
       <div class="form-group">
           <div class="col-md-12 control">
-              <div style="border-top: 1px solid #888; padding-top:15px; padding-left: 20px; font-size:85%" >
+              <div style="border-top: 1px ; padding-top:15px; padding-left: 20px; font-size:85%" >
                   Already have an account!
               <a routerLink="/login">
                   Login Here
