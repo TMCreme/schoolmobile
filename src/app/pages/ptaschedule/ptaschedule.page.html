@@ -49,7 +49,7 @@
 
     <ion-row *ngFor="let item of loadedmettings" routerLink="/directory">
       <ion-col size="5"
-        ><ion-datetime value="{{item.start_date}}"></ion-datetime
+        ><ion-datetime value="{{item.start_date}}" displayFormat="DD-MM-YYYY"></ion-datetime
       ></ion-col>
       <ion-col size="3">
         <ion-datetime displayFormat="HH:mm" value="{{item.start_date}}">
