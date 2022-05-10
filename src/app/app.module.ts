@@ -22,15 +22,12 @@ import { CookieService,  } from 'ngx-cookie-service';
 import { BaseService } from './services/base.service';
 import { AddeventPage } from './pages/addevent/addevent.page';
 // import { PtaschedulePage } from './pages/ptaschedule/ptaschedule.page';
-import { PtaschedulePageModule } from './pages/ptaschedule/ptaschedule.module'; 
+import { PtaschedulePageModule } from './pages/ptaschedule/ptaschedule.module';
 import { CalendarModule } from 'ion2-calendar';
-
-
 import Peer from 'peerjs';
 
 
 // const config: SocketIoConfig = { url: 'http://localhost:8030', options: {} };
-
 @NgModule({
     declarations: [AppComponent],
     imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,

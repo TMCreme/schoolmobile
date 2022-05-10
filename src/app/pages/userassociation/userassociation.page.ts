@@ -36,7 +36,7 @@ export class UserassociationPage implements OnInit {
     private base: BaseService, private loading: LoadingController) {
       this.userType = this.cookieService.get("addedusergroup");
     let form = {};
-    
+
     if (this.userType == "ParentOrGuardian") {
       this.title = "Fiala - Whose Parent";
       let studentlist = this.cache.loadFromObservable("adminstudentlist",this.base.adminstudentlist(),
@@ -49,7 +49,7 @@ export class UserassociationPage implements OnInit {
         dynamicval: new FormControl("")
       })
     }else if (this.userType == "Student") {
-      this.title = "Fiala - Which Class";
+      this.title = "Fiala";
       let studentclass = this.cache.loadFromObservable("adminlevellist",this.base.adminlevellist(),
       "adminlevellistview",3);
       studentclass.subscribe(data => {
@@ -59,12 +59,12 @@ export class UserassociationPage implements OnInit {
       this.userTypeForm = this.formBuilder.group({
         dynamicval: new FormControl("")
       })
-    }  
+    }
   }
-      
+
     //  }
 
-  ngOnInit() {  
+  ngOnInit() {
     this.welcomefunc()
     // this.cookieService.delete("parentname")
   }

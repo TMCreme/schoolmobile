@@ -1,17 +1,12 @@
 <ion-header [translucent]="true">
-	<ion-toolbar>
-	  <ion-buttons slot="start">
-		<ion-menu-button></ion-menu-button>
-		<!-- <ion-back-button defaultHref="#" ></ion-back-button> -->
-	  </ion-buttons>
-	  <ion-title>Fiala</ion-title>
-	</ion-toolbar>
-  </ion-header>
-
-
-
-
-
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <!-- <ion-back-button defaultHref="#" ></ion-back-button> -->
+    </ion-buttons>
+    <ion-title>Fiala</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <!-- <ng-template #template let-showEventDetail="showEventDetail" let-selectedDate="selectedDate" let-noEventsLabel="noEventsLabel">
 	<ion-list class="event-detail-container" has-bouncing="false" *ngIf="showEventDetail" overflow-scroll="false">
@@ -28,63 +23,59 @@
 	</ion-list>
 </ng-template> -->
 
-
-
-
 <ion-content class="has-header">
+  <ion-title style="text-align: center; margin-top: 10px; margin-bottom: 10px"
+    >PTA Schedule</ion-title
+  >
+  <ion-grid>
+    <ion-row style="font-weight: bold">
+      <ion-col size="5" style="text-align: center;"> Date </ion-col>
+      <ion-col size="3" style="text-align: end;"> Time </ion-col>
+      <ion-col size="4"> Title </ion-col>
+    </ion-row>
 
-
-
-	<ion-item color="primary">
-		<ion-title>PTA Schedule</ion-title>
-		<ion-buttons end>
-			<button ion-button [disabled]="isToday" (click)="today()">Today</button>
-		</ion-buttons>
-	</ion-item>
-
-	<ion-grid>
-		<ion-row style="font-weight: bold;">
-			<ion-col size-md="6">
-			  <div >Date</div>
-			</ion-col>
-			<ion-col size-md="8">
-			  <div>Time</div>
-			</ion-col>
-			<ion-col class="my-right-column">
-			  <div>Title</div>
-			</ion-col>
-		  </ion-row>
-
-			<ion-row *ngFor="let item of loadedmettings" routerLink="/directory">
-				<ion-col>
+    <!-- <ion-row *ngFor="let item of loadedmettings" routerLink="/directory">
+				<ion-col size="5">
 					<ion-datetime value="{{item.start_date}}"> </ion-datetime>
 				</ion-col>
-				<ion-col>
+				<ion-col size="3">
 					<ion-datetime displayFormat="HH:mm" value="{{item.start_date}}"> </ion-datetime>
 				</ion-col>
-				<ion-col>
+				<ion-col size="4">
 					{{item.title}}
 				</ion-col>
 
-			</ion-row>
-		<!-- </ion-item> -->
-	</ion-grid>
-	<hr>
+			</ion-row> -->
 
-	<ion-row ion-content>
+    <ion-row *ngFor="let item of loadedmettings" routerLink="/directory">
+      <ion-col size="5"
+        ><ion-datetime value="{{item.start_date}}"></ion-datetime
+      ></ion-col>
+      <ion-col size="3">
+        <ion-datetime displayFormat="HH:mm" value="{{item.start_date}}">
+        </ion-datetime>
+      </ion-col>
+      <ion-col size="4">{{item.title}}</ion-col>
+    </ion-row>
+
+    <!-- </ion-item> -->
+  </ion-grid>
+  <hr />
+
+  <ion-row ion-content>
     <div class="ptaBtn">
-
-			<ion-button color="secondary" small (click)="addEvent()" >Schedule PTA Meeting</ion-button>
-
-  </div>
-		<!-- <ion-col col-3>
+      <ion-button color="secondary" small (click)="addEvent()"
+        >Schedule PTA Meeting</ion-button
+      >
+    </div>
+    <!-- <ion-col col-3>
 			<ion-select [(ngModel)]="calendar.mode" style="max-width: 100%">
 				<ion-select-option (ionSelect)="onOptionSelected($event)" *ngFor="let mode of calendarModes" [value]="mode.key">{{mode.value}}
 				</ion-select-option>
 			</ion-select>
 		</ion-col> -->
-	</ion-row>
-	<!-- <ion-calendar  [attr.markdisabled]="markDisabled"
+  </ion-row>
+  <!-- <ion-calendar  [attr.markdisabled]="markDisabled"
 	 (onCurrentDateChanged)="onCurrentDateChanged($event)" (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)"
 	 (onTimeSelected)="onTimeSelected($event)" step="30">
 	</ion-calendar> -->
